@@ -1,0 +1,56 @@
+name: Build Godot iOS
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download Godot Engine
+        run: |
+          GODOT_VERSION="4.7.2-stable"
+          curl -sL https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}/Godot_v${{ env.GODOT_VERSION }}_macos.universal.zip -o godot.zip
+          unzip godot.zip
+          mv Godot.app /Applications/Godot.app
+        env:
+          GODOT_VERSION: "4.7.2-stable"
+
+      - name: Download Export Templates
+        run: |
+          TEMPLATES_VERSION="4.7.2-stable"
+          curl -sL https://github.com/godotengine/godot/releases/download/${{ env.TEMPLATES_VERSION }}/Godot_v${{ env.TEMPLATES_VERSION }}_export_templates.tpz -o templates.tpz
+          mkdir -p ~/Library/Application\ Support/Godot/export_templates/${{ env.TEMPLATES_VERSION }}
+          unzip templates.tpz
+          mv templates/* ~/Library/Application\ Support/Godot/export_templates/${{ env.TEMPLATES_VERSION }}/
+        env:
+          TEMPLATES_VERSION: "4.7.2-stable"
+
+      - name: Export Godot Project
+        run: |
+          mkdir -p build/ios
+          /Applications/Godot.app/Contents/MacOS/Godot --headless --export-release "iOS" build/ios/YourGameName.xcodeproj
+
+      - name: Build Xcode Project to App Bundle
+        run: |
+          cd build/ios
+          xcodebuild -project YourGameName.xcodeproj -scheme YourGameName -sdk iphoneos -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO build
+
+      - name: Package IPA Artifact
+        run: |
+          mkdir -p Payload
+          cp -r build/ios/build/Release-iphoneos/YourGameName.app Payload/
+          zip -r YourGameName.ipa Payload/
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-game-ipa
+          path: YourGameName.ipa
+
