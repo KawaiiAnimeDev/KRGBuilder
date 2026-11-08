@@ -36,22 +36,28 @@ jobs:
       - name: Export Godot Project
         run: |
           mkdir -p build/ios
-          /Applications/Godot.app/Contents/MacOS/Godot --headless --export-release "iOS" build/ios/YourGameName.xcodeproj
+          /Applications/Godot.app/Contents/MacOS/Godot --headless --export-release "iOS" build/ios/game.xcodeproj
 
       - name: Build Xcode Project to App Bundle
         run: |
           cd build/ios
-          xcodebuild -project YourGameName.xcodeproj -scheme YourGameName -sdk iphoneos -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO build
+          # Automatically find the generated .xcodeproj file name
+          XCODEPROJ=$(ls -d *.xcodeproj | head -n 1)
+          SCHEME_NAME=$(basename "$XCODEPROJ" .xcodeproj)
+          echo "Building project: $XCODEPROJ with scheme: $SCHEME_NAME"
+          
+          xcodebuild -project "$XCODEPROJ" -scheme "$SCHEME_NAME" -sdk iphoneos -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO build
 
       - name: Package IPA Artifact
         run: |
+          cd build/ios
+          APP_NAME=$(ls -d build/Release-iphoneos/*.app | head -n 1)
           mkdir -p Payload
-          cp -r build/ios/build/Release-iphoneos/YourGameName.app Payload/
-          zip -r YourGameName.ipa Payload/
+          cp -r "$APP_NAME" Payload/
+          zip -r ../../ios-game.ipa Payload/
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ios-game-ipa
-          path: YourGameName.ipa
-
+          path: ios-game.ipa
