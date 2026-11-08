@@ -25,10 +25,11 @@ jobs:
       - name: Download Export Templates
         run: |
           TEMPLATES_VERSION="4.7.2-stable"
+          DIR_VERSION="4.7.2.stable"
           curl -sL https://github.com/godotengine/godot/releases/download/${{ env.TEMPLATES_VERSION }}/Godot_v${{ env.TEMPLATES_VERSION }}_export_templates.tpz -o templates.tpz
-          mkdir -p ~/Library/Application\ Support/Godot/export_templates/${{ env.TEMPLATES_VERSION }}
+          mkdir -p ~/Library/Application\ Support/Godot/export_templates/${{ env.DIR_VERSION }}
           unzip templates.tpz
-          mv templates/* ~/Library/Application\ Support/Godot/export_templates/${{ env.TEMPLATES_VERSION }}/
+          mv templates/* ~/Library/Application\ Support/Godot/export_templates/${{ env.DIR_VERSION }}/
         env:
           TEMPLATES_VERSION: "4.7.2-stable"
 
