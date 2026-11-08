@@ -1,61 +1,66 @@
 name: Build iOS (unsigned IPA)
 
-# Run on every push to main + on demand (workflow_dispatch)
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 env:
-  # ----- project-specific knobs -----
-  GODOT_VERSION: 4.7.2-stable # dont forget update export templates if bumping this version
-  IOS_PRESET:    iOS          # export-preset name in Godot
+  GODOT_VERSION: 4.7.2-stable   # templates are downloaded automatically, just bump this
+  IOS_PRESET:    iOS            # export-preset name in Godot
   NAME:          ${{ github.event.repository.name }}
-  # speed: stop brew from auto-updating every run
   HOMEBREW_NO_AUTO_UPDATE: 1
 
 jobs:
   build-ios:
-    runs-on: macos-latest      # Apple Silicon runner w/ Xcode 16
+    runs-on: macos-latest
     timeout-minutes: 30
 
     steps:
     # 0. Pull repo
     - name: Checkout
       uses: actions/checkout@v4
-      with:
-        lfs: true 
 
     # 1. Get headless Godot
-    - name: Download Godot headless
+    - name: Download Godot
       run: |
-        curl -L \
+        curl -fL \
           "https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_macos.universal.zip" \
           -o godot.zip
         unzip -q godot.zip -d godot
-        
-    # 2. Copy iOS export template from repo folder
-    #    TODO: To save some bandwidth, I decided to store export template in the repository. (180 MB vs over 1 GB)
-    #    The ios.zip template must be stored in folder called export_templates/{godot-version}/
-    #    The godot version uses a dash in the name but export template uses a dot.
-    #    E.g.: /export_templates/4.4.1.stable/ios.zip
-    - name: Install iOS export template
+
+    # 2. iOS export template (cached per Godot version)
+    - name: Set template path
       run: |
-        templates_root="$HOME/Library/Application Support/Godot/export_templates"
-        mkdir -p "$templates_root"
-        cp -R "export_templates/." "$templates_root/"
+        echo "TEMPLATE_DIR=$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION/-/.}" >> "$GITHUB_ENV"
+
+    - name: Cache iOS export template
+      id: tpl-cache
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.TEMPLATE_DIR }}
+        key: godot-ios-template-${{ env.GODOT_VERSION }}
+
+    - name: Download iOS export template
+      if: steps.tpl-cache.outputs.cache-hit != 'true'
+      run: |
+        mkdir -p "$TEMPLATE_DIR"
+        curl -fL \
+          "https://github.com/godotengine/godot-builds/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_export_templates.tpz" \
+          -o templates.tpz
+        unzip -q -j templates.tpz "templates/ios.zip" "templates/version.txt" -d "$TEMPLATE_DIR"
+        rm templates.tpz
 
     # 3. Export preset -> Xcode project
-    #    TODO: In addition to other mandatory fields (try running the export locally first),
-    #    you need to enable `application/export_project_only=true` and `application/delete_old_export_files_unconditionally=true`.
-    #    You can find these options in Advanced Options.
+    #    Needs application/export_project_only=true and
+    #    application/delete_old_export_files_unconditionally=true in the preset.
     - name: Export to Xcode project
       run: |
         mkdir -p build/ios
         godot/Godot.app/Contents/MacOS/Godot --headless --path . \
           --export-release "${IOS_PRESET}" build/ios/${NAME}.xcodeproj
 
-    # 4. Build unsigned archive (mirrors mak448a/build-ios)
+    # 4. Build unsigned archive
     - name: xcodebuild archive (unsigned)
       run: |
         xcodebuild archive \
@@ -86,7 +91,5 @@ jobs:
         name: unsigned-ipa
         path: ${{ env.NAME }}.ipa
         retention-days: 14
-        
-    # TODO: Now you can download the build from the pipeline and use a sideload store to 
-    #    load it to your iPhone/iPad. You can use AltStore classic, for example.
-    #    You can follow the guide for VCMI - https://vcmi.eu/players/Installation_iOS/
+
+    # Sideload the IPA with AltStore, SideStore, etc.
