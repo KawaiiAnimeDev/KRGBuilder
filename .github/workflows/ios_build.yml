@@ -22,14 +22,24 @@ jobs:
         env:
           GODOT_VERSION: "4.7.2-stable"
 
-      - name: Download Export Templates
+      - name: Download and Place Export Templates
         run: |
           TEMPLATES_VERSION="4.7.2-stable"
           DIR_VERSION="4.7.2.stable"
+          TEMPLATE_DIR="$HOME/Library/Application Support/Godot/export_templates/${{ env.DIR_VERSION }}"
+          
+          mkdir -p "$TEMPLATE_DIR"
           curl -sL https://github.com/godotengine/godot/releases/download/${{ env.TEMPLATES_VERSION }}/Godot_v${{ env.TEMPLATES_VERSION }}_export_templates.tpz -o templates.tpz
-          mkdir -p ~/Library/Application\ Support/Godot/export_templates/${{ env.DIR_VERSION }}
-          unzip templates.tpz
-          mv templates/* ~/Library/Application\ Support/Godot/export_templates/${{ env.DIR_VERSION }}/
+          
+          # Unzip the tpz container (it's a zip file)
+          unzip -q templates.tpz
+          
+          # Godot export_templates.tpz extracts to a folder named 'templates/'
+          # Move its contents directly into the expected version folder
+          mv templates/* "$TEMPLATE_DIR/"
+          
+          # List files to verify placement
+          ls -la "$TEMPLATE_DIR"
         env:
           TEMPLATES_VERSION: "4.7.2-stable"
 
@@ -41,7 +51,6 @@ jobs:
       - name: Build Xcode Project to App Bundle
         run: |
           cd build/ios
-          # Automatically find the generated .xcodeproj file name
           XCODEPROJ=$(ls -d *.xcodeproj | head -n 1)
           SCHEME_NAME=$(basename "$XCODEPROJ" .xcodeproj)
           echo "Building project: $XCODEPROJ with scheme: $SCHEME_NAME"
