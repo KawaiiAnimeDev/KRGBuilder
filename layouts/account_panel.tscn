@@ -1,0 +1,1034 @@
+[gd_scene format=3 uid="uid://b856bwxevco72"]
+
+[ext_resource type="Texture2D" uid="uid://dlj6erc5jbxu3" path="res://assets/img/account/acc_panel.png" id="1_dp3yy"]
+[ext_resource type="FontFile" uid="uid://0fwqbsifgfwf" path="res://assets/fonts/OpenSans-ExtraBold.ttf" id="2_rya3x"]
+[ext_resource type="Texture2D" uid="uid://fil4l8r5v4cv" path="res://assets/img/account/acc_b.png" id="3_8du3j"]
+[ext_resource type="Texture2D" uid="uid://nx7crm2q7fs0" path="res://assets/img/account/acc_b_accept.png" id="4_saian"]
+[ext_resource type="FontFile" uid="uid://5adim0c2owii" path="res://assets/fonts/OpenSans-Light.ttf" id="5_osww1"]
+[ext_resource type="Texture2D" uid="uid://bt6kosruqchmo" path="res://assets/img/topbar/button_top_mates.png" id="5_q2lvt"]
+[ext_resource type="Texture2D" uid="uid://clw0ixe2ajxly" path="res://assets/img/topbar/button_top_mates_h.png" id="6_23t7h"]
+[ext_resource type="Texture2D" uid="uid://bmeqjb36ymibb" path="res://assets/img/account/acc_field.png" id="8_kd7bb"]
+[ext_resource type="FontFile" uid="uid://c7wts3pli4ssm" path="res://assets/fonts/OpenSans_SemiCondensed-ExtraBold.ttf" id="9_g3u1m"]
+[ext_resource type="Texture2D" uid="uid://6mvekpq1p3rj" path="res://assets/img/account/field_btn.png" id="10_g3u1m"]
+[ext_resource type="Texture2D" uid="uid://cavlyhu2moe4" path="res://assets/img/account/field_btn_accept.png" id="11_hqb3b"]
+[ext_resource type="FontFile" uid="uid://dxerfi7ekoooe" path="res://assets/fonts/OpenSans_SemiCondensed-Bold.ttf" id="12_hqb3b"]
+[ext_resource type="Texture2D" uid="uid://b5fbtomtnel6v" path="res://assets/img/account/acc_field_static.png" id="13_ooavr"]
+
+[sub_resource type="Animation" id="Animation_8du3j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filter:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.6666667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelMain:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(695, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelMain/Content:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PanelMain/Content:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PanelMain:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_saian"]
+resource_name = "anim_enter"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filter:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.6666667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelMain:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1281, 0), Vector2(695, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelMain/Content:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.4689607, 0.4689607), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PanelMain/Content:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PanelMain:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_23t7h"]
+resource_name = "anim_exit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Filter:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.6666667), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelMain:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(695, 0), Vector2(1281, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelMain/Content:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.4689607, 0.4689607), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PanelMain/Content:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PanelMain:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pejly"]
+resource_name = "content_fi"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelMain/Content:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelMain/Content:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q2lvt"]
+resource_name = "content_fo"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelMain/Content:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelMain/Content:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2lvt"]
+_data = {
+&"RESET": SubResource("Animation_8du3j"),
+&"anim_enter": SubResource("Animation_saian"),
+&"anim_exit": SubResource("Animation_23t7h"),
+&"content_fi": SubResource("Animation_pejly"),
+&"content_fo": SubResource("Animation_q2lvt")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_dp3yy"]
+font = ExtResource("2_rya3x")
+font_size = 32
+font_color = Color(0.35655218, 0.66194415, 0.9844945, 1)
+outline_size = 2
+outline_color = Color(2.9841065e-06, 0, 0.75384295, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8du3j"]
+font = ExtResource("2_rya3x")
+font_size = 32
+font_color = Color(0.7786428, 0.5382912, 0.8583879, 1)
+outline_size = 2
+outline_color = Color(2.9841065e-06, 0, 0.75384295, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqb3b"]
+font = ExtResource("2_rya3x")
+font_size = 18
+font_color = Color(0.11464908, 0.5248804, 0.89804256, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ooavr"]
+font = ExtResource("5_osww1")
+font_size = 14
+font_color = Color(1, 0.34284744, 0.31112388, 1)
+shadow_color = Color(0, 0, 0, 0.54901963)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g4v7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yf5fn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_57qmd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f4us7"]
+font = ExtResource("12_hqb3b")
+font_size = 14
+font_color = Color(0.5227893, 0.7377792, 0.55159754, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="AccountPanel" type="Control" unique_id=747541219]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=36103419]
+libraries/ = SubResource("AnimationLibrary_q2lvt")
+
+[node name="Filter" type="ColorRect" parent="." unique_id=1886496216]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6666667)
+metadata/_edit_lock_ = true
+
+[node name="PanelMain" type="TextureRect" parent="." unique_id=861950051]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -585.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_dp3yy")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Content" type="Control" parent="PanelMain" unique_id=530703536]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+metadata/_edit_lock_ = true
+
+[node name="PageOffline" type="Control" parent="PanelMain/Content" unique_id=376115169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="PanelMain/Content/PageOffline" unique_id=302819797]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 50.0
+offset_right = 128.0
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Account Center"
+label_settings = SubResource("LabelSettings_dp3yy")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Login" type="TextureButton" parent="PanelMain/Content/PageOffline" unique_id=387407721]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_top = -96.0
+offset_right = 165.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_8du3j")
+texture_pressed = ExtResource("4_saian")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="PanelMain/Content/PageOffline/Login" unique_id=692704322]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Login"
+label_settings = SubResource("LabelSettings_8du3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Signup" type="TextureButton" parent="PanelMain/Content/PageOffline" unique_id=1473842452]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_right = 165.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_8du3j")
+texture_pressed = ExtResource("4_saian")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label3" type="Label" parent="PanelMain/Content/PageOffline/Signup" unique_id=435347866]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Create Account"
+label_settings = SubResource("LabelSettings_8du3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PageConnected" type="Control" parent="PanelMain/Content" unique_id=620946986]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="PanelMain/Content/PageConnected" unique_id=1850893580]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 50.0
+offset_right = 128.0
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Account Center"
+label_settings = SubResource("LabelSettings_dp3yy")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="PanelMain/Content/PageConnected" unique_id=681124419]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -127.500244
+offset_top = 192.0
+offset_right = 128.49976
+offset_bottom = 218.0
+grow_horizontal = 2
+text = "Change Username"
+label_settings = SubResource("LabelSettings_hqb3b")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label3" type="Label" parent="PanelMain/Content/PageConnected" unique_id=1983161177]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_right = 0.50100005
+offset_left = -128.08527
+offset_top = 272.0
+offset_right = 127.914734
+offset_bottom = 298.0
+grow_horizontal = 2
+text = "Failed to change the username (Monthly limit reached)"
+label_settings = SubResource("LabelSettings_ooavr")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="MatesButton" type="TextureButton" parent="PanelMain/Content/PageConnected" unique_id=1794940460]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.011000001
+anchor_right = 0.5
+anchor_bottom = 0.011000001
+offset_left = -127.500244
+offset_top = 120.08
+offset_right = 124.499756
+offset_bottom = 174.08
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_q2lvt")
+texture_pressed = ExtResource("6_23t7h")
+ignore_texture_size = true
+metadata/_edit_lock_ = true
+
+[node name="Logout" type="TextureButton" parent="PanelMain/Content/PageConnected" unique_id=4040150]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -312.0005
+offset_top = -80.0
+offset_right = 16.999512
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("3_8du3j")
+texture_pressed = ExtResource("4_saian")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="PanelMain/Content/PageConnected/Logout" unique_id=624237224]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Log Out"
+label_settings = SubResource("LabelSettings_8du3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="UserChange" type="TextureRect" parent="PanelMain/Content/PageConnected" unique_id=1608252957]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.50024
+offset_top = 224.0
+offset_right = 164.49976
+offset_bottom = 272.0
+grow_horizontal = 2
+texture = ExtResource("8_kd7bb")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelMain/Content/PageConnected/UserChange" unique_id=1380240898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -56.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.37410554, 0.1846256, 0.3852931, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.24872282, 0.440162, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_g3u1m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
+placeholder_text = "Enter new username"
+context_menu_enabled = false
+emoji_menu_enabled = false
+metadata/_edit_lock_ = true
+
+[node name="TextureButton" type="TextureButton" parent="PanelMain/Content/PageConnected/UserChange" unique_id=1338672725]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("10_g3u1m")
+texture_pressed = ExtResource("11_hqb3b")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label4" type="Label" parent="PanelMain/Content/PageConnected/UserChange" unique_id=939252033]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -12.0
+offset_right = 258.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Change"
+label_settings = SubResource("LabelSettings_f4us7")
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PageLogin" type="Control" parent="PanelMain/Content" unique_id=289272847]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Label4" type="Label" parent="PanelMain/Content/PageLogin" unique_id=32435850]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 50.0
+offset_right = 128.0
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Log In"
+label_settings = SubResource("LabelSettings_dp3yy")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Id" type="TextureRect" parent="PanelMain/Content/PageLogin" unique_id=1376810750]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.50024
+offset_top = 224.0
+offset_right = 164.49976
+offset_bottom = 272.0
+grow_horizontal = 2
+texture = ExtResource("13_ooavr")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelMain/Content/PageLogin/Id" unique_id=1693700018]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -56.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.37410554, 0.1846256, 0.3852931, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.24872282, 0.440162, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_g3u1m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
+placeholder_text = "E-mail address"
+context_menu_enabled = false
+emoji_menu_enabled = false
+metadata/_edit_lock_ = true
+
+[node name="Password" type="TextureRect" parent="PanelMain/Content/PageLogin" unique_id=878895310]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.5
+offset_top = 280.0
+offset_right = 164.5
+offset_bottom = 328.0
+grow_horizontal = 2
+texture = ExtResource("13_ooavr")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelMain/Content/PageLogin/Password" unique_id=579524069]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -56.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.37410554, 0.1846256, 0.3852931, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.24872282, 0.440162, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_g3u1m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
+placeholder_text = "Password"
+context_menu_enabled = false
+emoji_menu_enabled = false
+secret = true
+metadata/_edit_lock_ = true
+
+[node name="Login" type="TextureButton" parent="PanelMain/Content/PageLogin" unique_id=1571736316]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -164.5
+offset_top = -170.0
+offset_right = 164.5
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_8du3j")
+texture_pressed = ExtResource("4_saian")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="PanelMain/Content/PageLogin/Login" unique_id=1924403991]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Log In"
+label_settings = SubResource("LabelSettings_8du3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PageSignup" type="Control" parent="PanelMain/Content" unique_id=300697628]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Label4" type="Label" parent="PanelMain/Content/PageSignup" unique_id=1440276420]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 50.0
+offset_right = 128.0
+offset_bottom = 95.0
+grow_horizontal = 2
+text = "Create Account"
+label_settings = SubResource("LabelSettings_dp3yy")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Id" type="TextureRect" parent="PanelMain/Content/PageSignup" unique_id=1253699311]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.5
+offset_top = 192.0
+offset_right = 163.5
+offset_bottom = 240.0
+grow_horizontal = 2
+texture = ExtResource("13_ooavr")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelMain/Content/PageSignup/Id" unique_id=367654296]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -56.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.37410554, 0.1846256, 0.3852931, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.24872282, 0.440162, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_g3u1m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
+placeholder_text = "E-mail address"
+context_menu_enabled = false
+emoji_menu_enabled = false
+metadata/_edit_lock_ = true
+
+[node name="Id2" type="TextureRect" parent="PanelMain/Content/PageSignup" unique_id=2123028808]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.49976
+offset_top = 248.0
+offset_right = 163.50024
+offset_bottom = 296.0
+grow_horizontal = 2
+texture = ExtResource("13_ooavr")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelMain/Content/PageSignup/Id2" unique_id=2132410560]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -56.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.37410554, 0.1846256, 0.3852931, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.24872282, 0.440162, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_g3u1m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
+placeholder_text = "Confirm e-mail address"
+context_menu_enabled = false
+emoji_menu_enabled = false
+metadata/_edit_lock_ = true
+
+[node name="Password" type="TextureRect" parent="PanelMain/Content/PageSignup" unique_id=720510785]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.49976
+offset_top = 304.0
+offset_right = 163.50024
+offset_bottom = 352.0
+grow_horizontal = 2
+texture = ExtResource("13_ooavr")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelMain/Content/PageSignup/Password" unique_id=237229508]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -56.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.37410554, 0.1846256, 0.3852931, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.24872282, 0.440162, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_g3u1m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
+placeholder_text = "Password"
+context_menu_enabled = false
+emoji_menu_enabled = false
+secret = true
+metadata/_edit_lock_ = true
+
+[node name="Password2" type="TextureRect" parent="PanelMain/Content/PageSignup" unique_id=1363416562]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.49976
+offset_top = 360.0
+offset_right = 163.50024
+offset_bottom = 408.0
+grow_horizontal = 2
+texture = ExtResource("13_ooavr")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelMain/Content/PageSignup/Password2" unique_id=189322365]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -56.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.37410554, 0.1846256, 0.3852931, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.24872282, 0.440162, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_g3u1m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
+placeholder_text = "Confirm password"
+context_menu_enabled = false
+emoji_menu_enabled = false
+secret = true
+metadata/_edit_lock_ = true
+
+[node name="User" type="TextureRect" parent="PanelMain/Content/PageSignup" unique_id=877635573]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.49976
+offset_top = 416.0
+offset_right = 163.50024
+offset_bottom = 464.0
+grow_horizontal = 2
+texture = ExtResource("13_ooavr")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="PanelMain/Content/PageSignup/User" unique_id=243761518]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -56.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.37410554, 0.1846256, 0.3852931, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.24872282, 0.440162, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("9_g3u1m")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_g4v7s")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_yf5fn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_57qmd")
+placeholder_text = "Username"
+context_menu_enabled = false
+emoji_menu_enabled = false
+secret = true
+metadata/_edit_lock_ = true
+
+[node name="Login" type="TextureButton" parent="PanelMain/Content/PageSignup" unique_id=437287074]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -164.5
+offset_top = -170.0
+offset_right = 164.5
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_8du3j")
+texture_pressed = ExtResource("4_saian")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="PanelMain/Content/PageSignup/Login" unique_id=1082104754]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = SubResource("LabelSettings_8du3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true

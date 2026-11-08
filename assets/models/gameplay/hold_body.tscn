@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bvuwk4p3vawpq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqmhn"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.28627452, 0.6117647, 1, 0.7647059)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p16hj"]
+size = Vector2(0.5, 0.5)
+
+[node name="HoldBody" type="MeshInstance3D" unique_id=1910551749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, 0)
+material_override = SubResource("StandardMaterial3D_dqmhn")
+mesh = SubResource("PlaneMesh_p16hj")

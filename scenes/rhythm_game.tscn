@@ -1,0 +1,739 @@
+[gd_scene format=3 uid="uid://b371apcwmc0dv"]
+
+[ext_resource type="Script" uid="uid://buqbkaol28y5r" path="res://addons/gde_gozen/rg_video_playback.gd" id="1_egq4h"]
+[ext_resource type="Script" uid="uid://bhdiqphwup0lm" path="res://scripts/gameplay/input_manager.gd" id="1_jvxus"]
+[ext_resource type="FontFile" uid="uid://4ldckivn4oha" path="res://assets/fonts/OpenSans_Condensed-ExtraBold.ttf" id="2_epuc0"]
+[ext_resource type="Script" uid="uid://d1a6k7isrra3b" path="res://scripts/gameplay/rhythm_game.gd" id="2_kctow"]
+[ext_resource type="Shader" uid="uid://dhij78t3owx22" path="res://assets/img/ingame/track.gdshader" id="2_ufa1g"]
+[ext_resource type="FontFile" uid="uid://c7wts3pli4ssm" path="res://assets/fonts/OpenSans_SemiCondensed-ExtraBold.ttf" id="3_bul1y"]
+[ext_resource type="Texture2D" uid="uid://bk2hn4w6heevs" path="res://assets/img/ingame/t_default.png" id="3_j16sd"]
+[ext_resource type="Environment" uid="uid://ci27r2fmfrv3p" path="res://assets/env/game_env_default.tres" id="3_qbphm"]
+[ext_resource type="Texture2D" uid="uid://dfdkeolx421w2" path="res://assets/img/ingame/t_line_default.png" id="4_fpy6y"]
+[ext_resource type="FontFile" uid="uid://capcc20lywym3" path="res://assets/fonts/OpenSans_SemiCondensed-ExtraBoldItalic.ttf" id="5_2w8hn"]
+[ext_resource type="Texture2D" uid="uid://bgb8s0qu8i5ta" path="res://assets/img/prebuilt/bg/light_valley_base.png" id="5_qj7r0"]
+[ext_resource type="Texture2D" uid="uid://djq00tsy1g7rr" path="res://assets/img/legacy/cute.png" id="5_rdhb4"]
+[ext_resource type="Shader" uid="uid://dxhm2do17m5pj" path="res://assets/img/ingame/judge_line.gdshader" id="5_y851k"]
+[ext_resource type="FontFile" uid="uid://crphurpgkowyf" path="res://assets/fonts/OpenSans_SemiCondensed-SemiBold.ttf" id="6_8b805"]
+[ext_resource type="Material" uid="uid://5uwpcjwq5c1p" path="res://assets/img/prebuilt/bg/bg_vor_mat.tres" id="6_86hb2"]
+[ext_resource type="Texture2D" uid="uid://dl064ke5f5bum" path="res://assets/img/ingame/t_judge_default.png" id="6_p16hj"]
+[ext_resource type="ArrayMesh" uid="uid://b5yjmefhs86qi" path="res://assets/models/knob.mesh" id="7_dqmhn"]
+[ext_resource type="FontFile" uid="uid://ut6bhvrnrheg" path="res://assets/fonts/OpenSans_SemiCondensed-LightItalic.ttf" id="7_yuydm"]
+[ext_resource type="Texture2D" uid="uid://do5sdbo8opfa3" path="res://assets/img/ingame/ln_hv_001.png" id="10_kctow"]
+[ext_resource type="Texture2D" uid="uid://b2gds5niiba4p" path="res://assets/img/ingame/layout/score_light.png" id="14_dc64o"]
+[ext_resource type="PackedScene" uid="uid://bonjuc8d8846o" path="res://assets/models/gameplay/normal_note.tscn" id="14_qj7r0"]
+[ext_resource type="PackedScene" uid="uid://bvuwk4p3vawpq" path="res://assets/models/gameplay/hold_body.tscn" id="15_bjc3r"]
+[ext_resource type="Texture2D" uid="uid://mmpd14i04yav" path="res://assets/img/ingame/layout/pause_light.png" id="16_00yba"]
+[ext_resource type="Texture2D" uid="uid://dklggxkj6li4y" path="res://assets/img/ingame/layout/pause_light_hv.png" id="17_0di4o"]
+[ext_resource type="Texture2D" uid="uid://543hw2dbqh4r" path="res://assets/img/ingame/layout/diff_3.png" id="17_c87l2"]
+[ext_resource type="Shader" uid="uid://cjcpa5y5iaui6" path="res://assets/img/ingame/lv_p1.gdshader" id="19_kctow"]
+[ext_resource type="Texture2D" uid="uid://cdl2asjtfgv4l" path="res://assets/img/ingame/layout/hb_main.png" id="22_18mne"]
+[ext_resource type="Texture2D" uid="uid://becx5c08w1c66" path="res://assets/img/ingame/layout/bg_paused.png" id="25_nss5v"]
+[ext_resource type="Texture2D" uid="uid://c33mgavirbdpk" path="res://assets/img/ingame/layout/paused_text.png" id="26_klcs1"]
+[ext_resource type="Script" uid="uid://b3bxi4ojw2h5y" path="res://scripts/dbg/debug_overlay.gd" id="26_qj7r0"]
+[ext_resource type="Texture2D" uid="uid://bcagw3rn33hqn" path="res://assets/img/ingame/layout/bubble_pause.png" id="27_klcs1"]
+[ext_resource type="FontFile" uid="uid://d2dm5dpddiytq" path="res://assets/fonts/OpenSans-SemiBold.ttf" id="28_3gv6t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j16sd"]
+render_priority = 0
+shader = ExtResource("2_ufa1g")
+shader_parameter/track_texture = ExtResource("3_j16sd")
+shader_parameter/uv_scale_y = 14.667
+shader_parameter/track_scroll_offset = 0.0
+shader_parameter/t_alpha = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g7b7a"]
+size = Vector2(1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+render_priority = 2
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("4_fpy6y")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+size = Vector2(0.1, 33)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kctow"]
+render_priority = 1
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("10_kctow")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 0.5000000074506
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dc64o"]
+size = Vector2(1, 30)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qbphm"]
+render_priority = 1
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("10_kctow")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 0.5000000074506
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c87l2"]
+render_priority = 1
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("10_kctow")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 0.5000000074506
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18mne"]
+render_priority = 1
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("10_kctow")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 0.5000000074506
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86hb2"]
+render_priority = 1
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("10_kctow")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 0.5000000074506
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj7r0"]
+render_priority = 1
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("10_kctow")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 0.5000000074506
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bjc3r"]
+render_priority = 1
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("10_kctow")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 0.5000000074506
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dc64o"]
+render_priority = 1
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("10_kctow")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 0.5000000074506
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpy6y"]
+render_priority = 3
+shader = ExtResource("5_y851k")
+shader_parameter/segment_texture = ExtResource("6_p16hj")
+shader_parameter/segment_width_units = 0.0625
+shader_parameter/segment_alpha_multiplier = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yf5fn"]
+material = SubResource("ShaderMaterial_fpy6y")
+size = Vector2(8, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jvxus"]
+render_priority = 2
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.74887156, 0.6464827, 0.9185432, 1)
+grow = true
+grow_amount = 0.04
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="Gradient" id="Gradient_p16hj"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ra5q2"]
+gradient = SubResource("Gradient_p16hj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra5q2"]
+render_priority = 1
+next_pass = SubResource("StandardMaterial3D_jvxus")
+transparency = 4
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(1, 0.80784315, 0.6666667, 0.6156863)
+refraction_scale = 1.0
+refraction_texture = SubResource("GradientTexture1D_ra5q2")
+grow = true
+grow_amount = 0.08
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(0.74887156, 0.6464827, 0.9185432, 1)
+stencil_outline_thickness = 0.04
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g7b7a"]
+top_radius = 0.8
+bottom_radius = 0.8
+height = 30.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7b7a"]
+render_priority = 11
+transparency = 4
+shading_mode = 0
+albedo_color = Color(0.6983063, 0.25435385, 0.9999886, 0.9098039)
+stencil_flags = 2
+stencil_outline_thickness = 0.962
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("2_epuc0")
+font_size = 18
+font_color = Color(0.011773215, 0.31744176, 0.37351465, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8b805"]
+font = ExtResource("3_bul1y")
+font_size = 49
+font_color = Color(0.011773215, 0.31744176, 0.37351465, 1)
+outline_size = 3
+outline_color = Color(9.1448425e-07, 0.60600704, 0.43784994, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.5568628)
+
+[sub_resource type="LabelSettings" id="LabelSettings_57qmd"]
+font = ExtResource("5_2w8hn")
+font_size = 12
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pi7ma"]
+font = ExtResource("5_2w8hn")
+font_size = 8
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font = ExtResource("6_8b805")
+font_size = 14
+outline_size = 2
+outline_color = Color(0.19793725, 0.19793722, 0.19793722, 1)
+shadow_color = Color(0, 0, 0, 0.31764707)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2w8hn"]
+font = ExtResource("7_yuydm")
+font_size = 12
+font_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+outline_size = 1
+outline_color = Color(0.19793725, 0.19793722, 0.19793722, 1)
+shadow_color = Color(0, 0, 0, 0.31764707)
+shadow_offset = Vector2(0.5, 0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0u6y"]
+font = ExtResource("28_3gv6t")
+font_size = 24
+font_color = Color(1, 1, 1, 0.6862745)
+outline_size = 2
+outline_color = Color(0, 0, 0, 0.6862745)
+shadow_size = 5
+shadow_color = Color(0.08235294, 0.08235294, 0.08235294, 0.6862745)
+shadow_offset = Vector2(1.5, 1.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jvxus"]
+shader = ExtResource("19_kctow")
+shader_parameter/chromatic_enabled = false
+shader_parameter/chromatic_intensity = 0.246000011685
+shader_parameter/pinch_amount = 0.4
+shader_parameter/pinch_center = Vector2(0.5, 0.25)
+shader_parameter/burn_enabled = false
+shader_parameter/burn_intensity = 0.0
+shader_parameter/burn_speed = 125.0
+shader_parameter/sepia_tint = Vector3(0.55, 0.35, 0.18)
+shader_parameter/glitch_enabled = false
+shader_parameter/glitch_intensity = 1.0
+shader_parameter/glitch_speed = 5.0
+
+[node name="RhythmGame" type="Node3D" unique_id=665041175]
+
+[node name="InputManager" type="Node" parent="." unique_id=458258781 node_paths=PackedStringArray("camera", "left_knob", "right_knob")]
+script = ExtResource("1_jvxus")
+camera = NodePath("../Camera3D")
+left_knob = NodePath("../LeftKnob")
+right_knob = NodePath("../RightKnob")
+knob_touch_radius = 200.0
+knob_sensitivity = 1.5
+metadata/_custom_type_script = "uid://bhdiqphwup0lm"
+
+[node name="RhythmGame" type="Node" parent="." unique_id=1479320440 node_paths=PackedStringArray("input_manager", "track_separators", "lane_glow_meshes")]
+script = ExtResource("2_kctow")
+input_manager = NodePath("../InputManager")
+track_separators = NodePath("../TrackSeparators")
+lane_glow_meshes = [NodePath("../TrackGlows/TrackHL"), NodePath("../TrackGlows/TrackHL2"), NodePath("../TrackGlows/TrackHL3"), NodePath("../TrackGlows/TrackHL4"), NodePath("../TrackGlows/TrackHL5"), NodePath("../TrackGlows/TrackHL6"), NodePath("../TrackGlows/TrackHL7"), NodePath("../TrackGlows/TrackHL8")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=61872232]
+environment = ExtResource("3_qbphm")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1011946372]
+layer = -1
+
+[node name="BGA" type="Control" parent="BackgroundLayer" unique_id=1366184592]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_egq4h")
+path = "res://assets/img/prebuilt/bga/bga_part1_lv.mp4"
+enable_audio = false
+enable_auto_play = true
+loop = true
+stretch_mode = 6
+metadata/_custom_type_script = "uid://buqbkaol28y5r"
+metadata/_edit_lock_ = true
+
+[node name="BG" type="TextureRect" parent="BackgroundLayer" unique_id=1987587492]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_qj7r0")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BackgroundLayer" unique_id=2051363267]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+metadata/_edit_lock_ = true
+
+[node name="SubViewport" type="SubViewport" parent="BackgroundLayer/SubViewportContainer" unique_id=1232597020]
+handle_input_locally = false
+scaling_3d_scale = 0.5
+anisotropic_filtering_level = 0
+size = Vector2i(1280, 720)
+render_target_update_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer/SubViewportContainer/SubViewport" unique_id=1194373160]
+material = ExtResource("6_86hb2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=155751344]
+transform = Transform3D(1, 0, 0, 0, 0.9063077, 0.4226183, 0, -0.4226183, 0.9063077, 0, 3.2, 3.5)
+keep_aspect = 0
+fov = 95.0
+metadata/_edit_lock_ = true
+
+[node name="Track" type="MeshInstance3D" parent="." unique_id=1004928620]
+transform = Transform3D(9, 0, 0, 0, 1, 0, 0, 0, 33, 0, 0, -15)
+material_override = SubResource("ShaderMaterial_j16sd")
+mesh = SubResource("PlaneMesh_g7b7a")
+metadata/_edit_lock_ = true
+
+[node name="TrackSeparators" type="Node3D" parent="." unique_id=1878307716]
+
+[node name="TrackLine" type="MeshInstance3D" parent="TrackSeparators" unique_id=174571733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.004, -15)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="TrackLine2" type="MeshInstance3D" parent="TrackSeparators" unique_id=1869087170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.004, -15)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="TrackLine3" type="MeshInstance3D" parent="TrackSeparators" unique_id=1882450078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.004, -15)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="TrackLine4" type="MeshInstance3D" parent="TrackSeparators" unique_id=867316679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.004, -15)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="TrackLine5" type="MeshInstance3D" parent="TrackSeparators" unique_id=353224111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.004, -15)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="TrackLine6" type="MeshInstance3D" parent="TrackSeparators" unique_id=1521888123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.004, -15)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="TrackLine7" type="MeshInstance3D" parent="TrackSeparators" unique_id=1506663436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.004, -15)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("PlaneMesh_g4v7s")
+
+[node name="TrackGlows" type="Node3D" parent="." unique_id=477646660]
+
+[node name="TrackHL" type="MeshInstance3D" parent="TrackGlows" unique_id=449217042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.001, -15)
+material_override = SubResource("ShaderMaterial_kctow")
+mesh = SubResource("PlaneMesh_dc64o")
+
+[node name="TrackHL2" type="MeshInstance3D" parent="TrackGlows" unique_id=1158133625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.001, -15)
+material_override = SubResource("ShaderMaterial_qbphm")
+mesh = SubResource("PlaneMesh_dc64o")
+
+[node name="TrackHL3" type="MeshInstance3D" parent="TrackGlows" unique_id=2071578069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.001, -15)
+material_override = SubResource("ShaderMaterial_c87l2")
+mesh = SubResource("PlaneMesh_dc64o")
+
+[node name="TrackHL4" type="MeshInstance3D" parent="TrackGlows" unique_id=563121241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.001, -15)
+material_override = SubResource("ShaderMaterial_18mne")
+mesh = SubResource("PlaneMesh_dc64o")
+
+[node name="TrackHL5" type="MeshInstance3D" parent="TrackGlows" unique_id=346940391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.001, -15)
+material_override = SubResource("ShaderMaterial_86hb2")
+mesh = SubResource("PlaneMesh_dc64o")
+
+[node name="TrackHL6" type="MeshInstance3D" parent="TrackGlows" unique_id=2056774868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.001, -15)
+material_override = SubResource("ShaderMaterial_qj7r0")
+mesh = SubResource("PlaneMesh_dc64o")
+
+[node name="TrackHL7" type="MeshInstance3D" parent="TrackGlows" unique_id=395160436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.001, -15)
+material_override = SubResource("ShaderMaterial_bjc3r")
+mesh = SubResource("PlaneMesh_dc64o")
+
+[node name="TrackHL8" type="MeshInstance3D" parent="TrackGlows" unique_id=1664225464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.001, -15)
+material_override = SubResource("ShaderMaterial_dc64o")
+mesh = SubResource("PlaneMesh_dc64o")
+
+[node name="TrackOrigin" type="MeshInstance3D" parent="." unique_id=1464082956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.003, 0)
+mesh = SubResource("PlaneMesh_yf5fn")
+
+[node name="LeftTraceTube" type="MeshInstance3D" parent="." unique_id=1798616872]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -5.3, 0, -16.5)
+material_override = SubResource("StandardMaterial3D_ra5q2")
+mesh = SubResource("CylinderMesh_g7b7a")
+
+[node name="RightTraceTube" type="MeshInstance3D" parent="." unique_id=447121470]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 5.3, 0, -16.5)
+material_override = SubResource("StandardMaterial3D_ra5q2")
+mesh = SubResource("CylinderMesh_g7b7a")
+
+[node name="LeftKnob" type="MeshInstance3D" parent="." unique_id=583485599]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.9999999, -4.3711385e-08, 0, 0, 0, 0.99999994, -5.3, 0, -1.25)
+material_override = SubResource("StandardMaterial3D_g7b7a")
+mesh = ExtResource("7_dqmhn")
+
+[node name="RightKnob" type="MeshInstance3D" parent="." unique_id=1590546542]
+transform = Transform3D(-4.370712e-08, -0.99990237, 0.013962179, 0.9999998, -4.371138e-08, 0, 6.103062e-10, 0.013962178, 0.9999025, 5.3, 0, -1.25)
+material_override = SubResource("StandardMaterial3D_g7b7a")
+mesh = ExtResource("7_dqmhn")
+
+[node name="NormalNote" parent="." unique_id=665898557 instance=ExtResource("14_qj7r0")]
+
+[node name="HoldBody" parent="." unique_id=1910551749 instance=ExtResource("15_bjc3r")]
+
+[node name="GameUi" type="CanvasLayer" parent="." unique_id=304139399]
+
+[node name="PauseButton" type="TextureButton" parent="GameUi" unique_id=1738913427]
+offset_left = 50.0
+offset_top = 25.0
+offset_right = 150.0
+offset_bottom = 125.0
+texture_normal = ExtResource("16_00yba")
+texture_pressed = ExtResource("17_0di4o")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="ScoreRect" type="TextureRect" parent="GameUi" unique_id=460744470]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -491.0
+offset_bottom = 79.0
+grow_horizontal = 0
+mouse_filter = 2
+texture = ExtResource("14_dc64o")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="ScoreLabel" type="Label" parent="GameUi/ScoreRect" unique_id=717005876]
+layout_mode = 1
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 77.0
+offset_bottom = 32.0
+text = "Score:"
+label_settings = SubResource("LabelSettings_g4v7s")
+metadata/_edit_lock_ = true
+
+[node name="ScoreCount" type="Label" parent="GameUi/ScoreRect" unique_id=1158909492]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -25.5
+offset_right = 221.0
+offset_bottom = 42.5
+grow_vertical = 2
+text = "0000000"
+label_settings = SubResource("LabelSettings_8b805")
+metadata/_edit_lock_ = true
+
+[node name="DiffRect" type="TextureRect" parent="GameUi/ScoreRect" unique_id=1696365346]
+layout_mode = 0
+offset_left = 314.0
+offset_top = 40.0
+offset_right = 378.0
+offset_bottom = 83.0
+mouse_filter = 2
+texture = ExtResource("17_c87l2")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="GameUi/ScoreRect/DiffRect" unique_id=1772633334]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 19.0
+offset_bottom = 32.0
+text = "17"
+label_settings = SubResource("LabelSettings_57qmd")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="GameUi/ScoreRect/DiffRect" unique_id=1004894658]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 11.0
+offset_right = 62.0
+offset_bottom = 31.0
+text = "Insanity"
+label_settings = SubResource("LabelSettings_pi7ma")
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="JacketRect" type="TextureRect" parent="GameUi/ScoreRect" unique_id=1547115646]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 9.0
+offset_right = 308.0
+offset_bottom = 71.0
+mouse_filter = 2
+texture = ExtResource("5_rdhb4")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="SongLabel" type="Label" parent="GameUi/ScoreRect" unique_id=1259505660]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 14.0
+offset_right = 449.0
+offset_bottom = 37.0
+text = "Untitled Track"
+label_settings = SubResource("LabelSettings_yf5fn")
+metadata/_edit_lock_ = true
+
+[node name="ArtistLabel" type="Label" parent="GameUi/ScoreRect" unique_id=1352166922]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 34.0
+offset_right = 449.0
+offset_bottom = 71.0
+text = "Untitled Artist
+"
+label_settings = SubResource("LabelSettings_2w8hn")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GameUi/ScoreRect" unique_id=633782860]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -245.5
+offset_top = -1.0
+offset_right = 245.5
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("22_18mne")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="PauseLayout" type="Control" parent="GameUi" unique_id=1555353843]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="GameUi/PauseLayout" unique_id=1381345120]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.6862745)
+metadata/_edit_lock_ = true
+
+[node name="bggradient" type="TextureRect" parent="GameUi/PauseLayout/ColorRect" unique_id=2044220988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("25_nss5v")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="pausetext" type="TextureRect" parent="GameUi/PauseLayout/ColorRect" unique_id=545112000]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -41.5
+offset_right = 119.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("26_klcs1")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="resume" type="TextureButton" parent="GameUi/PauseLayout/ColorRect" unique_id=542710392]
+self_modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = -141.0
+offset_right = -151.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("27_klcs1")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="GameUi/PauseLayout/ColorRect/resume" unique_id=432710357]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="retry" type="TextureButton" parent="GameUi/PauseLayout/ColorRect" unique_id=1629518161]
+self_modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = 48.0
+offset_right = 61.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("27_klcs1")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="GameUi/PauseLayout/ColorRect/retry" unique_id=1564574468]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="quit" type="TextureButton" parent="GameUi/PauseLayout/ColorRect" unique_id=113473386]
+self_modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 150.0
+offset_top = -78.0
+offset_right = 300.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("27_klcs1")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="GameUi/PauseLayout/ColorRect/quit" unique_id=235258573]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+label_settings = SubResource("LabelSettings_d0u6y")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Shader" type="CanvasLayer" parent="." unique_id=340594357]
+layer = 10
+
+[node name="Pass" type="ColorRect" parent="Shader" unique_id=1715143530]
+visible = false
+material = SubResource("ShaderMaterial_jvxus")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="DebugOverlay" type="CanvasLayer" parent="." unique_id=287927408]
+visible = false
+script = ExtResource("26_qj7r0")
+metadata/_custom_type_script = "uid://b3bxi4ojw2h5y"

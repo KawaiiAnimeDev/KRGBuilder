@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bonjuc8d8846o"]
+
+[ext_resource type="Texture2D" uid="uid://02top0tpytqh" path="res://assets/img/ingame/tap_normal.png" id="1_ia2vk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p16hj"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_ia2vk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y851k"]
+size = Vector2(1, 0.5)
+
+[node name="NormalNote" type="MeshInstance3D" unique_id=665898557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+material_override = SubResource("StandardMaterial3D_p16hj")
+mesh = SubResource("PlaneMesh_y851k")

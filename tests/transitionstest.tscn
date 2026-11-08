@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://i2r4hk0ciddb"]
+
+[ext_resource type="Texture2D" uid="uid://klgqpu3vle3q" path="res://assets/img/loading/loadpane2_normal.png" id="1_mecvu"]
+[ext_resource type="Texture2D" uid="uid://dp46mujrtlh7l" path="res://assets/img/loading/loadpane1_normal.png" id="2_v1dbr"]
+
+[sub_resource type="Animation" id="Animation_mecvu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.55, 0.55)]
+}
+
+[sub_resource type="Animation" id="Animation_0cges"]
+resource_name = "transtest"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -0.5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.55, 0.55), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpqxc"]
+_data = {
+&"RESET": SubResource("Animation_mecvu"),
+&"transtest": SubResource("Animation_0cges")
+}
+
+[node name="Transitionstest" type="Control" unique_id=503689484]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1528431022]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+texture = ExtResource("1_mecvu")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=234549444]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0.55, 0.55)
+texture = ExtResource("2_v1dbr")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=164218564]
+libraries/ = SubResource("AnimationLibrary_hpqxc")

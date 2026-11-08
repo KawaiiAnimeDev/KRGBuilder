@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://5uwpcjwq5c1p"]
+
+[ext_resource type="Shader" uid="uid://db6x2rqxxmnoy" path="res://assets/img/prebuilt/bg/vornoi_bg.gdshader" id="1_nk46j"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0p4pc"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_osn8k"]
+noise = SubResource("FastNoiseLite_0p4pc")
+
+[resource]
+shader = ExtResource("1_nk46j")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_osn8k")
+shader_parameter/color_choice = 3

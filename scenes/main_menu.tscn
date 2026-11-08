@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c66mddmnpcuit"]
+
+[ext_resource type="PackedScene" uid="uid://dg4wbuuttuwhf" path="res://layouts/top_bar.tscn" id="1_l6cm7"]
+
+[node name="MainMenu" type="Node2D" unique_id=28435836]
+
+[node name="Ui" type="CanvasLayer" parent="." unique_id=457475893]
+
+[node name="Control" type="Control" parent="Ui" unique_id=924985211]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TopBar" parent="Ui/Control" unique_id=56506686 instance=ExtResource("1_l6cm7")]
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true

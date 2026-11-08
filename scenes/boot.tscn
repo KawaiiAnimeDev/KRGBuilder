@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://bwagm4ccr4y1i"]
+
+[ext_resource type="Script" uid="uid://b56kkdvup325a" path="res://scripts/system/boot.gd" id="1_6ypks"]
+[ext_resource type="Script" uid="uid://b5bikb5e7d1t6" path="res://scripts/system/scenemgr.gd" id="2_n61mk"]
+[ext_resource type="Texture2D" uid="uid://klgqpu3vle3q" path="res://assets/img/loading/loadpane2_normal.png" id="3_j20pb"]
+[ext_resource type="Texture2D" uid="uid://dp46mujrtlh7l" path="res://assets/img/loading/loadpane1_normal.png" id="4_fbohu"]
+
+[sub_resource type="Animation" id="Animation_j20pb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel1:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.55, 0.55)]
+}
+
+[sub_resource type="Animation" id="Animation_fbohu"]
+resource_name = "close"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel1:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -0.5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.55, 0.55), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jo0fb"]
+resource_name = "open"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel1:offset_transform_position_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -0.5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:offset_transform_position_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.55, 0.55), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jo0fb"]
+_data = {
+&"RESET": SubResource("Animation_j20pb"),
+&"close": SubResource("Animation_fbohu"),
+&"open": SubResource("Animation_jo0fb")
+}
+
+[node name="Boot" type="Node" unique_id=1343367541]
+script = ExtResource("1_6ypks")
+
+[node name="SceneMgr" type="Node" parent="." unique_id=36214318]
+script = ExtResource("2_n61mk")
+metadata/_custom_type_script = "uid://b5bikb5e7d1t6"
+
+[node name="Transition" type="CanvasLayer" parent="." unique_id=1943972744]
+
+[node name="Control" type="Control" parent="Transition" unique_id=503689484]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Animator" type="AnimationPlayer" parent="Transition/Control" unique_id=1847994670]
+libraries/ = SubResource("AnimationLibrary_jo0fb")
+
+[node name="Panel1" type="TextureRect" parent="Transition/Control" unique_id=1528431022]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+texture = ExtResource("3_j20pb")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Panel2" type="TextureRect" parent="Transition/Control" unique_id=234549444]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0.55, 0.55)
+texture = ExtResource("4_fbohu")
+expand_mode = 4
+stretch_mode = 5

@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://dg4wbuuttuwhf"]
+
+[ext_resource type="Texture2D" uid="uid://72g45xdbx3xy" path="res://assets/img/topbar/topbar.png" id="1_mlvol"]
+[ext_resource type="Shader" uid="uid://pnsxfvfg753y" path="res://assets/img/topbar/mates_profile_mask.gdshader" id="2_x03da"]
+[ext_resource type="Texture2D" uid="uid://djq00tsy1g7rr" path="res://assets/img/legacy/cute.png" id="3_vsaqf"]
+[ext_resource type="Texture2D" uid="uid://d0fj63jwd58h" path="res://assets/img/topbar/profile.png" id="4_l1pll"]
+[ext_resource type="FontFile" uid="uid://dxerfi7ekoooe" path="res://assets/fonts/OpenSans_SemiCondensed-Bold.ttf" id="5_3ekag"]
+[ext_resource type="FontFile" uid="uid://dmbewma8rhw1a" path="res://assets/fonts/OpenSans-Bold.ttf" id="6_1jsox"]
+[ext_resource type="Texture2D" uid="uid://bt6kosruqchmo" path="res://assets/img/topbar/button_top_mates.png" id="7_gaqsw"]
+[ext_resource type="Texture2D" uid="uid://clw0ixe2ajxly" path="res://assets/img/topbar/button_top_mates_h.png" id="8_x03da"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tbmy8"]
+shader = ExtResource("2_x03da")
+shader_parameter/radius = 0.5
+shader_parameter/size = Vector2(2, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ln24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("5_3ekag")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font = ExtResource("6_1jsox")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_oa1go"]
+font = ExtResource("6_1jsox")
+font_size = 12
+
+[node name="TopBar" type="TextureRect" unique_id=56506686]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -508.0
+offset_right = 508.0
+offset_bottom = 78.0
+grow_horizontal = 2
+texture = ExtResource("1_mlvol")
+stretch_mode = 5
+
+[node name="UserProfile" type="HBoxContainer" parent="." unique_id=1607656644]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MatesProfile" type="TextureRect" parent="UserProfile" unique_id=768561429]
+material = SubResource("ShaderMaterial_tbmy8")
+custom_minimum_size = Vector2(82, 82)
+custom_maximum_size = Vector2(82, 82)
+layout_mode = 2
+texture = ExtResource("3_vsaqf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Cover" type="TextureRect" parent="UserProfile/MatesProfile" unique_id=428287307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_l1pll")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VSeparator2" type="VSeparator" parent="UserProfile" unique_id=1794682937]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8ln24")
+
+[node name="MatesDisplayName" type="Label" parent="UserProfile" unique_id=1294215474]
+custom_minimum_size = Vector2(150, 0)
+custom_maximum_size = Vector2(250, -1)
+clip_contents = true
+layout_mode = 2
+text = "User0"
+label_settings = SubResource("LabelSettings_g4v7s")
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="UserProfile" unique_id=1032792705]
+layout_mode = 2
+theme_override_constants/separation = 35
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8ln24")
+
+[node name="AccountStats" type="VBoxContainer" parent="UserProfile" unique_id=1338111119]
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="UserProfile/AccountStats" unique_id=1928354648]
+layout_mode = 2
+text = "Rank: 00.00"
+label_settings = SubResource("LabelSettings_yf5fn")
+
+[node name="Accuracy" type="Label" parent="UserProfile/AccountStats" unique_id=1638142665]
+layout_mode = 2
+text = "ACCURACY: 100.00%"
+label_settings = SubResource("LabelSettings_oa1go")
+
+[node name="MatesButton" type="TextureButton" parent="." unique_id=1346149167]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -29.0
+offset_right = 288.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_gaqsw")
+texture_pressed = ExtResource("8_x03da")
+texture_hover = ExtResource("8_x03da")
+ignore_texture_size = true
+metadata/_edit_lock_ = true
+
+[node name="MatesStatus" type="VBoxContainer" parent="." unique_id=1593289682]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -23.0
+offset_right = -124.0
+offset_bottom = 17.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="All" type="Label" parent="MatesStatus" unique_id=1805373892]
+layout_mode = 2
+text = "FRIENDS: 999"
+label_settings = SubResource("LabelSettings_oa1go")
+metadata/_edit_lock_ = true
+
+[node name="On" type="Label" parent="MatesStatus" unique_id=1987370250]
+layout_mode = 2
+text = "ONLINE: 600"
+label_settings = SubResource("LabelSettings_oa1go")
+metadata/_edit_lock_ = true

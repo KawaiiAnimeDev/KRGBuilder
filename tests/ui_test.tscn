@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://boq71a7ad420i"]
+
+[node name="UiTest" type="Node2D" unique_id=1834735700]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=138764285]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=309787626]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=295933730]
+layout_mode = 1
+offset_left = 33.0
+offset_top = 67.0
+offset_right = 371.0
+offset_bottom = 246.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control" unique_id=1070522627]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -251.0
+offset_top = -66.0
+offset_right = -39.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Control" unique_id=1705519274]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -319.0
+offset_top = 90.0
+offset_right = -54.0
+offset_bottom = 166.0
+grow_horizontal = 0
