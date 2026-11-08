@@ -31,14 +31,14 @@ jobs:
           mkdir -p "$TEMPLATE_DIR"
           curl -sL https://github.com/godotengine/godot/releases/download/${{ env.TEMPLATES_VERSION }}/Godot_v${{ env.TEMPLATES_VERSION }}_export_templates.tpz -o templates.tpz
           
-          # Unzip the tpz container (it's a zip file)
+          # Unzip the templates container package
           unzip -q templates.tpz
           
-          # Godot export_templates.tpz extracts to a folder named 'templates/'
-          # Move its contents directly into the expected version folder
-          mv templates/* "$TEMPLATE_DIR/"
+          # Godot's export_templates.tpz contains platform zips (like ios.zip, android_debug.apk, etc.) inside a 'templates/' folder.
+          # Move those platform zip files directly into the version folder where Godot expects them.
+          mv templates/*.zip "$TEMPLATE_DIR/"
           
-          # List files to verify placement
+          # Verify the files exist
           ls -la "$TEMPLATE_DIR"
         env:
           TEMPLATES_VERSION: "4.7.2-stable"
