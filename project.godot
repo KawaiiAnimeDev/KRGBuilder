@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RhythmGameProto"
-run/main_scene="uid://ninh1gpm4e2q"
+run/main_scene="uid://b371apcwmc0dv"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=120
 boot_splash/bg_color=Color(0, 0, 0, 1)

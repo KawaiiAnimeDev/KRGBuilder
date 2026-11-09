@@ -573,6 +573,7 @@ stretch_mode = 5
 metadata/_edit_lock_ = true
 
 [node name="PauseLayout" type="Control" parent="GameUi" unique_id=1555353843]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
